@@ -1,0 +1,23 @@
+<form [formGroup]="searchForm" (submit)="onSubmit()">
+    <label for="poke-name">Name: </label>
+    <input id="poke-name" type="text" formControlName="nameFilter">
+
+    <label for="type-1">First Type: </label>
+    <select id="type-1" formControlName="type1Filter" #type1>
+        <option value="any">Any</option>
+        <option *ngFor="let type of types" [value]="type">{{ type | titlecase }}</option>
+    </select>
+
+    <ng-template [ngIf]="type1.value != 'any'">
+        <label for="type-2">Second Type: </label>
+        <select id="type-2" formControlName="type2Filter">
+            <option value="any">Any</option>
+            <option *ngFor="let type of types" [value]="type">{{ type | titlecase }}</option>
+        </select>
+    </ng-template>
+
+    <label for="show-non-defaults">Show Megas/G-Max/Regional Forms: </label>
+    <input type="checkbox" id="show-non-defaults" formControlName="displayNonDefaults">
+
+    <input type="submit" id="submit-button" value="Search">
+</form>

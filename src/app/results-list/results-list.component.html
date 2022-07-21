@@ -1,0 +1,14 @@
+<div *ngIf="pokemonList.length > 0">
+    <h3>Pokemon List:</h3>
+
+    <table>
+        <tr>
+            <th>Dex #</th>
+            <th>Sprite</th>
+            <th>Name</th>
+            <th>Type</th>
+        </tr>
+        <tr pokemon-display *ngFor="let pokemon of pokemonList" [pokemon]="pokemon"></tr>
+    </table>
+</div>
+

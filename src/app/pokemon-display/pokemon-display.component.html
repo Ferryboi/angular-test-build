@@ -1,0 +1,15 @@
+<!--
+<div *ngIf="pokemon">
+    <h4> {{ getName() }} <ng-template [ngIf]="getNationalDexNum() > 0">  | National Dex #{{ getNationalDexNum() }}</ng-template></h4>
+    <p><ng-template ngFor let-type [ngForOf]="getTypes()">{{ type }} </ng-template></p>
+    <img [src]="getFrontSprite()" alt="cannot load image">
+</div>
+-->
+
+    <td>
+        <ng-template [ngIf]="getIsDefault()" [ngIfElse]="notDefault"> {{ getNationalDexNum() }} </ng-template>
+        <ng-template #notDefault> -- </ng-template>
+    </td>
+    <td><img [src]="getFrontSprite()" alt="cannot load image"></td>
+    <td>{{ getName() | titlecase }}</td>
+    <td><ng-template ngFor let-type [ngForOf]="getTypes()">{{ type | titlecase }} </ng-template></td>
